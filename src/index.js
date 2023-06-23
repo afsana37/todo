@@ -1,6 +1,14 @@
 // index.js
 import './styles.css';
-// index.js
+import { library, dom } from '@fortawesome/fontawesome-svg-core';
+import { faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+// Add the Font Awesome icons to the library
+library.add(faTrashAlt, faEdit);
+// Initialize the FontAwesome library
+dom.watch();
+
 // Store the projects and tasks
 const projects = [];
 
@@ -54,7 +62,7 @@ function renderProjects() {
     projectTitle.textContent = project.name;
 
     const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Delete';
+    deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i>';
     deleteButton.addEventListener('click', () => {
       deleteProject(index);
     });
@@ -97,8 +105,8 @@ function renderTasks(activeProject) {
     taskItem.innerHTML = `
       <input type="checkbox">
       <span>${task.name}</span>
-      <button class="edit-btn">Edit</button>
-      <button class="delete-btn">Delete</button>
+      <button class="edit-btn"><i class="fas fa-edit"></i></button>
+      <button class="delete-btn"><i class="fas fa-trash-alt"></i></button>
       <p>Due Date: ${task.dueDate}</p>
       <p>Priority: ${task.priority}</p>
     `;

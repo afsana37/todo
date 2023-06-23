@@ -6,11 +6,13 @@
   
   body {
     font-family: Arial, sans-serif;
+    background-color: rgb(130, 215, 248);
   }
   
   ul {
     list-style-type: none;
   }
+  
   .container {
     display: flex;
     flex-direction: column;
@@ -42,7 +44,7 @@
   }
   
   .project-card {
-    border: 1px solid #ccc;
+    border: 1px solid #272020;
     padding: 10px;
     margin-bottom: 10px;
   }
@@ -53,12 +55,17 @@
   
   .actions {
     display: flex;
+    justify-content: flex-end;
     align-items: center;
   }
   
   .actions i {
     margin-left: 5px;
     cursor: pointer;
+  }
+  
+  .delete-btn {
+    margin-left: 5px;
   }
   
   .footer {
