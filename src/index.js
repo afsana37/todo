@@ -1,31 +1,54 @@
 // index.js
 import './styles.css';
-document.getElementById('taskForm').addEventListener('submit', createTask);
+// Store the projects and tasks
+// Project and task creation logic
+const projectForm = document.getElementById('projectForm');
+const projectTitleInput = document.getElementById('projectTitleInput');
+const taskForm = document.getElementById('taskForm');
+const taskTitleInput = document.getElementById('taskTitleInput');
+const dueDateTimeInput = document.getElementById('dueDateTimeInput');
+const prioritySelect = document.getElementById('prioritySelect');
+const projectTasks = document.getElementById('projectTasks');
 
-function createTask(event) {
-  event.preventDefault();
+// Handle project creation
+projectForm.addEventListener('submit', function (e) {
+  e.preventDefault();
+  const projectName = projectTitleInput.value;
+  createProject(projectName);
+  projectTitleInput.value = '';
+});
 
-  const listNameInput = document.getElementById('listNameInput');
-  const taskTitleInput = document.getElementById('taskTitleInput');
-  const dueDateTimeInput = document.getElementById('dueDateTimeInput');
-  const prioritySelect = document.getElementById('prioritySelect');
-
-  const listName = listNameInput.value;
-  const taskTitle = taskTitleInput.value;
-  const dueDateTime = dueDateTimeInput.value;
+// Handle task creation
+taskForm.addEventListener('submit', function (e) {
+  e.preventDefault();
+  const taskName = taskTitleInput.value;
+  const dueDate = dueDateTimeInput.value;
   const priority = prioritySelect.value;
-
-  const taskItem = document.createElement('li');
-  taskItem.innerHTML = `
-    <input type="checkbox">
-    <span>${listName}: ${taskTitle}</span>
-    <button class="edit">Edit</button>
-    <button class="delete">Delete</button>
-  `;
-  document.getElementById('taskList').appendChild(taskItem);
-
-  listNameInput.value = '';
+  createTask(taskName, dueDate, priority);
   taskTitleInput.value = '';
   dueDateTimeInput.value = '';
-  prioritySelect.selectedIndex = 0;
+  prioritySelect.value = '';
+});
+
+// Create a new project
+function createProject(projectName) {
+  const project = document.createElement('div');
+  project.classList.add('project');
+  project.innerHTML = `<h3>${projectName}</h3>`;
+  projectTasks.appendChild(project);
+}
+
+// Create a new task
+function createTask(taskName, dueDate, priority) {
+  const task = document.createElement('div');
+  task.classList.add('task');
+  task.innerHTML = `
+    <input type="checkbox">
+    <span>${taskName}</span>
+    <button class="edit-btn">Edit</button>
+    <button class="delete-btn">Delete</button>
+    <p>Due Date: ${dueDate}</p>
+    <p>Priority: ${priority}</p>
+  `;
+  projectTasks.appendChild(task);
 }

@@ -1,98 +1,83 @@
-/* Reset default margin and padding */
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
   }
   
-  /* Body */
   body {
     font-family: Arial, sans-serif;
   }
   
-  /* Header */
-  header {
-    background-color: lightblue;
+  .container {
+    display: flex;
+  }
+  
+  .sidebar {
+    flex: 1;
+    padding: 20px;
+    background-color: #f0f0f0;
+  }
+  
+  .sidebar h2 {
+    margin-bottom: 10px;
+  }
+  
+  .body {
+    flex: 2;
+    padding: 20px;
+  }
+  
+  .header {
+    background-color: #333;
+    color: #fff;
     padding: 20px;
     text-align: center;
   }
   
-  header h1 {
-    font-size: 24px;
-    color: white;
+  #projectTitle {
+    margin-top: 20px;
   }
   
-  /* Main */
-  main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 30px;
-  }
-  
-  /* Task List Container */
-  .task-list-container {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 5px;
+  #taskForm {
     margin-bottom: 20px;
-    width: 500px;
   }
   
-  .task-list-container h2 {
+  #taskListContainer {
+    display: none;
+    margin-top: 20px;
+  }
+  
+  #taskListContainer h2 {
     margin-bottom: 10px;
   }
   
-  /* Task Form Container */
-  .task-form-container {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 5px;
-    width: 500px;
-  }
-  
-  .task-form-container h2 {
+  #taskListContainer form {
     margin-bottom: 10px;
   }
   
-  .task-form-container input[type="text"],
-  .task-form-container input[type="datetime-local"],
-  .task-form-container select {
-    margin-bottom: 10px;
-  }
-  
-  /* Task List */
   #taskList {
     list-style-type: none;
   }
   
-  #taskList li {
-    display: flex;
-    align-items: center;
+  .task-card {
+    border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
   }
   
-  #taskList li input[type="checkbox"] {
-    margin-right: 10px;
+  .task-card h3 {
+    margin-bottom: 5px;
   }
   
-  #taskList li .edit,
-  #taskList li .delete {
-    margin-left: auto;
-    margin-right: 10px;
+  .actions {
+    display: flex;
+    align-items: center;
   }
   
-  /* Form Submit Button */
-  button[type="submit"] {
-    background-color: lightblue;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+  .actions i {
+    margin-left: 5px;
     cursor: pointer;
   }
   
