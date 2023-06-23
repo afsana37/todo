@@ -1,52 +1,31 @@
-// Get a reference to the DOM elements
-const todoList = document.getElementById('todo-list');
-const todoInput = document.getElementById('todo-input');
-const addButton = document.getElementById('add-button');
+// index.js
+import './styles.css';
+document.getElementById('taskForm').addEventListener('submit', createTask);
 
-// Store the list of tasks
-let tasks = [];
+function createTask(event) {
+  event.preventDefault();
 
-// Function to render the list
-function renderList() {
-  // Clear the existing list
-  todoList.innerHTML = '';
+  const listNameInput = document.getElementById('listNameInput');
+  const taskTitleInput = document.getElementById('taskTitleInput');
+  const dueDateTimeInput = document.getElementById('dueDateTimeInput');
+  const prioritySelect = document.getElementById('prioritySelect');
 
-  // Render each task as a list item
-  tasks.forEach((task, index) => {
-    const listItem = document.createElement('li');
-    listItem.textContent = task;
-    
-    // Add a delete button for each task
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Delete';
-    deleteButton.addEventListener('click', () => {
-      deleteTask(index);
-    });
-    
-    listItem.appendChild(deleteButton);
-    todoList.appendChild(listItem);
-  });
+  const listName = listNameInput.value;
+  const taskTitle = taskTitleInput.value;
+  const dueDateTime = dueDateTimeInput.value;
+  const priority = prioritySelect.value;
+
+  const taskItem = document.createElement('li');
+  taskItem.innerHTML = `
+    <input type="checkbox">
+    <span>${listName}: ${taskTitle}</span>
+    <button class="edit">Edit</button>
+    <button class="delete">Delete</button>
+  `;
+  document.getElementById('taskList').appendChild(taskItem);
+
+  listNameInput.value = '';
+  taskTitleInput.value = '';
+  dueDateTimeInput.value = '';
+  prioritySelect.selectedIndex = 0;
 }
-
-// Function to add a new task
-function addTask() {
-  const task = todoInput.value.trim();
-  
-  if (task !== '') {
-    tasks.push(task);
-    renderList();
-    todoInput.value = '';
-  }
-}
-
-// Function to delete a task
-function deleteTask(index) {
-  tasks.splice(index, 1);
-  renderList();
-}
-
-// Event listener for add button click
-addButton.addEventListener('click', addTask);
-
-// Initial rendering of the list
-renderList();

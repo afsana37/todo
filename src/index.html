@@ -1,12 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>To-Do List App</title>
-  </head>
-  <body>
-    <h1>To-Do List</h1>
-    <div id="todo-list"></div>
-    <script src="bundle.js"></script>
-  </body>
+<head>
+  <title>Task Management App</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Task Management App</h1>
+  </header>
+  <main>
+    <div class="task-list-container">
+      <h2>Task List</h2>
+      <ul id="taskList"></ul>
+    </div>
+    <div class="task-form-container">
+      <h2>Create Task</h2>
+      <form id="taskForm">
+        <input type="text" id="listNameInput" placeholder="List Name" required>
+        <input type="text" id="taskTitleInput" placeholder="Task Title" required>
+        <input type="datetime-local" id="dueDateTimeInput" required>
+        <select id="prioritySelect" required>
+          <option value="">Select Priority</option>
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+        </select>
+        <button type="submit">Create</button>
+      </form>
+    </div>
+  </main>
+  <script src="index.js"></script>
+</body>
 </html>

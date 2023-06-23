@@ -1,0 +1,98 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body */
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header */
+  header {
+    background-color: lightblue;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  header h1 {
+    font-size: 24px;
+    color: white;
+  }
+  
+  /* Main */
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+  }
+  
+  /* Task List Container */
+  .task-list-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: 500px;
+  }
+  
+  .task-list-container h2 {
+    margin-bottom: 10px;
+  }
+  
+  /* Task Form Container */
+  .task-form-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    width: 500px;
+  }
+  
+  .task-form-container h2 {
+    margin-bottom: 10px;
+  }
+  
+  .task-form-container input[type="text"],
+  .task-form-container input[type="datetime-local"],
+  .task-form-container select {
+    margin-bottom: 10px;
+  }
+  
+  /* Task List */
+  #taskList {
+    list-style-type: none;
+  }
+  
+  #taskList li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  #taskList li input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  #taskList li .edit,
+  #taskList li .delete {
+    margin-left: auto;
+    margin-right: 10px;
+  }
+  
+  /* Form Submit Button */
+  button[type="submit"] {
+    background-color: lightblue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
